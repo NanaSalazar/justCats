@@ -1,4 +1,4 @@
-const urlBase = 'https://api.thecatapi.com/v1/images/search?limit=10'
+const urlBase = 'https://api.thecatapi.com/v1/images/search?limit=1'
 const cat = document.querySelector('#cat')
 const btn = document.querySelector('#btn')
 
@@ -9,11 +9,10 @@ function getCat() {
         fetch(urlBase)
         .then(response => response.json())
         .then(data => {
-        console.log(typeof data)
-        console.log(typeof data.url)
-        for(i = 0; i <= data.length; i++) {
             
-            cat.src = data[i].url
+        for(let value of data) {
+            console.log(data)
+            cat.src = value.url
             cat.style = 'max-height: 300px'
             
         }
